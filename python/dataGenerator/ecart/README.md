@@ -33,7 +33,9 @@ This repository contains a Python script for generating data for an e-commerce a
     Port: 5433
     Database: postgres
     Password: 9473
-    ```
+ ```
+    
+    
 
 
 4. Once the services are up and running, create the necessary database tables by executing the DDL scripts provided in the previous folder. These scripts should start with "db" and include the schema creation.
