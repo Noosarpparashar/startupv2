@@ -10,7 +10,7 @@ This repository contains a Python script for generating data for an e-commerce a
 
 ## Getting Started
 
-
+```
 1. Clone this repository:
    ```bash
    git clone https://github.com/Noosarpparashar/startupv2.git
@@ -19,7 +19,7 @@ This repository contains a Python script for generating data for an e-commerce a
 2. Change into the cloned directory:
    ```bash
    cd startupv2/python/dataGenerator/ecart
-   ```
+   
 
 3. Run the following command to start the application using Docker Compose:
    ```bash
