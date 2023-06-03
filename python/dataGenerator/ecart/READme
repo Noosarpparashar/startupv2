@@ -1,5 +1,5 @@
 Run docker-compose up
-Create tables as per ddl scripts
+Create tables as per ddl scripts given in previous folder starting with db and schema creation
 
 create DATABASE PINNACLEDB
 create schema ecart
@@ -8,9 +8,9 @@ Dockerize this python code
 docker build -t my-ecart-data-generator .
 
 docker network create my-network
-docker network connect my-network my-postgres
+docker network connect my-network my-postgres (Replcae my-postgres with docker name)
 
 docker run --network=my-network my-ecart-data-generator
 
-If using local use port as 5433 if running file inside docker then use port as 5432
+If using local use port as 5433 if running file inside docker then use port as 5432, make these changes in code
 
