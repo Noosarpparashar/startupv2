@@ -46,6 +46,7 @@ This repository contains a Python script for generating data for an e-commerce a
    - ```bash
         create SCHEMA ECART
 5.   Once the services are up and running, database and schema is created, create tables using following script the following DDL script:
+Note:- Make sure you acre creating inside pinnacledb only
 
 ```bash
 create table ECART.CUSTOMER (
@@ -100,6 +101,23 @@ create table ECART.FACT_ORDER (
  docker build -t my-ecart-data-generator
  docker run --network=my-network my-ecart-data-generator
 ```
+11. Connect pgadmin and run following commands to check if data is coming
+
+Note:- Make sure your database is pinnacledb only
+```bash
+    Host: localhost
+    Port: 5433
+    Database: pinnacledb
+    Password: 9473
+ ```
+```bash
+   select * from ECART.CUSTOMER
+   select * from ECART.PRODUCTINFO
+   select * from ECART.FACT_ORDER
+   select * from ECART.STOREINFO
+
+```
+
 
 ## License
 
