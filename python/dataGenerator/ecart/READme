@@ -1,49 +1,59 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>E-Cart Data Generator</title>
-</head>
-<body>
-  <h1>E-Cart Data Generator</h1>
-  
-  <h2>Prerequisites</h2>
-  <ul>
-    <li>Docker</li>
-    <li>Docker Compose</li>
-  </ul>
-  
-  <h2>Getting Started</h2>
-  <ol>
-    <li>Clone this repository:<br>
-      <code>git clone https://github.com/your/repo.git</code></li>
-    <li>Change into the cloned directory:<br>
-      <code>cd e-cart-data-generator</code></li>
-    <li>Run the following command to start the application using Docker Compose:<br>
-      <code>docker-compose up</code></li>
-    <li>Once the services are up and running, create the necessary database tables by executing the DDL scripts provided in the previous folder. These scripts should start with "db" and include the schema creation.
-      <ul>
-        <li>Create a database named <code>PINNACLEDB</code>.</li>
-        <li>Create a schema named <code>ecart</code> within the <code>PINNACLEDB</code> database.</li>
-      </ul>
-    </li>
-    <li>Dockerize the Python code by building the Docker image. Run the following command:<br>
-      <code>docker build -t my-ecart-data-generator .</code></li>
-    <li>Create a Docker network to allow communication between containers:<br>
-      <code>docker network create my-network</code></li>
-    <li>Connect the PostgreSQL container to the Docker network. Replace <code>my-postgres</code> with the name of your PostgreSQL Docker container:<br>
-      <code>docker network connect my-network my-postgres</code></li>
-    <li>Run the Docker container containing the data generator:<br>
-      <code>docker run --network=my-network my-ecart-data-generator</code></li>
-    <li>The data generator will start generating data for the e-commerce application based on the defined logic.</li>
-  </ol>
-  
-  <h2>License</h2>
-  <p>This project is licensed under the <a href="LICENSE">MIT License</a>.</p>
-  
-  <h2>Acknowledgements</h2>
-  <ul>
-    <li><a href="https://faker.readthedocs.io">Faker</a> - Python library for generating fake data.</li>
-    <li><a href="https://www.psycopg.org">Psycopg</a> - PostgreSQL adapter for Python.</li>
-  </ul>
-</body>
-</html>
+E-Cart Data Generator
+This repository contains a Python script for generating data for an e-commerce application. The data generator can be Dockerized and run using Docker Compose.
+
+Prerequisites
+Docker
+Docker Compose
+Getting Started
+Clone this repository:
+
+bash
+Copy code
+git clone https://github.com/your/repo.git
+Change into the cloned directory:
+
+bash
+Copy code
+cd e-cart-data-generator
+Run the following command to start the application using Docker Compose:
+
+bash
+Copy code
+docker-compose up
+This command will start the required services, including the PostgreSQL database.
+
+Once the services are up and running, create the necessary database tables by executing the DDL scripts provided in the previous folder. These scripts should start with "db" and include the schema creation.
+
+Create a database named PINNACLEDB.
+Create a schema named ecart within the PINNACLEDB database.
+Dockerize the Python code by building the Docker image. Run the following command:
+
+bash
+Copy code
+docker build -t my-ecart-data-generator .
+Create a Docker network to allow communication between containers:
+
+bash
+Copy code
+docker network create my-network
+Connect the PostgreSQL container to the Docker network. Replace my-postgres with the name of your PostgreSQL Docker container:
+
+bash
+Copy code
+docker network connect my-network my-postgres
+Run the Docker container containing the data generator:
+
+bash
+Copy code
+docker run --network=my-network my-ecart-data-generator
+Note: If you are running the Python script outside of Docker, make sure to use port 5433 for the PostgreSQL connection. If running the script inside Docker, use port 5432. Modify the necessary code accordingly.
+
+The data generator will start generating data for the e-commerce application based on the defined logic.
+
+License
+This project is licensed under the MIT License.
+
+Acknowledgements
+Faker - Python library for generating fake data.
+Psycopg - PostgreSQL adapter for Python.
+Feel free to modify the instructions based on your specific requirements or provide additional information as needed.
