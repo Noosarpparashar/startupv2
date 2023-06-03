@@ -95,7 +95,7 @@ create table ECART.FACT_ORDER (
 
    Note: Inside code we have given port as 5432 but to connect database on pgadmin or dbeaver use port as 5433 because in docker its running on 5432 but it maps to 5433 on localhost. Don't do anything if you wish to go by default
 
-10. The data generator will start generating data for the e-commerce application based on the defined logic. And if you wish to increase the rate of data generation go to dataGenerator.py and increase speed  and rerun 
+10. [**Optional**] The data generator will start generating data for the e-commerce application based on the defined logic. And if you wish to increase the rate of data generation go to dataGenerator.py and increase [speed](https://github.com/Noosarpparashar/startupv2/blame/master/python/dataGenerator/ecart/dataGenerator.py#:~:text=speed,150)  and rerun 
 ```bash
  docker build -t my-ecart-data-generator
  docker run --network=my-network my-ecart-data-generator
