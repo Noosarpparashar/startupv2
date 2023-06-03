@@ -43,6 +43,7 @@ This repository contains a Python script for generating data for an e-commerce a
    - ```bash
         create SCHEMA ECART
 5.   Once the services are up and running, database and schema is created, create tables using following script the following DDL script:
+
 ```bash
 create table ECART.CUSTOMER (
   CUSTID VARCHAR(50),
@@ -56,45 +57,43 @@ create table ECART.PRODUCTINFO (
   PRODCAT VARCHAR(400),
   STOREID varchar(70)
 );
-  ```bash
 
 create table ECART.STOREINFO (
   STOREID varchar(70),
   STORENAME VARCHAR(150),
   STOREADD VARCHAR(400)
 );
-```bash
 create table ECART.FACT_ORDER (
   ORDERID SERIAL PRIMARY key,
   CUSTID VARCHAR(50),
   PRODUCTID INTEGER,
   PURCHASETIMESTAMP TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
+``` 
 
-
-5. Dockerize the Python code by building the Docker image. Run the following command:
+6. Dockerize the Python code by building the Docker image. Run the following command:
    ```bash
    docker build -t my-ecart-data-generator .
    ```
 
-6. Create a Docker network to allow communication between containers:
+7. Create a Docker network to allow communication between containers:
    ```bash
    docker network create my-network
    ```
 
-7. Connect the PostgreSQL container to the Docker network. Replace `my-postgres` with the name of your PostgreSQL Docker container:
+8. Connect the PostgreSQL container to the Docker network. Replace `my-postgres` with the name of your PostgreSQL Docker container:
    ```bash
    docker network connect my-network my-postgres
    ```
 
-8. Run the Docker container containing the data generator:
+9. Run the Docker container containing the data generator:
    ```bash
    docker run --network=my-network my-ecart-data-generator
    ```
 
    Note: If you are running the Python script outside of Docker, make sure to use port 5433 for the PostgreSQL connection. If running the script inside Docker, use port 5432. Modify the necessary code accordingly.Or don't do anything if you wish to go by default
 
-9. The data generator will start generating data for the e-commerce application based on the defined logic.
+10. The data generator will start generating data for the e-commerce application based on the defined logic.
 
 ## License
 
