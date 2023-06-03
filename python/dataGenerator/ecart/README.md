@@ -37,29 +37,33 @@ This repository contains a Python script for generating data for an e-commerce a
 
 4. Once the services are up and running, create the necessary database tables by executing the DDL scripts provided in the previous folder. These scripts should start with "db" and include the schema creation.
    - Create a database named `PINNACLEDB`. 
+   - ```bash
         create DATABASE PINNACLEDB
    - Create a schema named `ecart` within the `PINNACLEDB` database.
+   - ```bash
         create SCHEMA ECART
-   Once the services are up and running, create the necessary database tables by executing the following DDL script:
+5.   Once the services are up and running, database and schema is created, create tables using following script the following DDL script:
+```bash
 create table ECART.CUSTOMER (
   CUSTID VARCHAR(50),
   CUSTNAME VARCHAR(100),
   CUSTADD VARCHAR(400)
-);
-
+); 
+```bash
 create table ECART.PRODUCTINFO (
   PRODUCTID INTEGER,
   PRODUCTNAME VARCHAR(150),
   PRODCAT VARCHAR(400),
   STOREID varchar(70)
 );
+  ```bash
 
 create table ECART.STOREINFO (
   STOREID varchar(70),
   STORENAME VARCHAR(150),
   STOREADD VARCHAR(400)
 );
-
+```bash
 create table ECART.FACT_ORDER (
   ORDERID SERIAL PRIMARY key,
   CUSTID VARCHAR(50),
