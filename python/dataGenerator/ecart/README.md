@@ -28,11 +28,12 @@ This repository contains a Python script for generating data for an e-commerce a
 
    This command will start  the PostgreSQL database.
    You can use pgadmin or dbeaver to connect to the PostgreSQL database by providing the following details:
-
+```bash
     Host: localhost
     Port: 5433
     Database: postgres
     Password: 9473
+    ```
 
 
 4. Once the services are up and running, create the necessary database tables by executing the DDL scripts provided in the previous folder. These scripts should start with "db" and include the schema creation.
