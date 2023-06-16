@@ -1,7 +1,8 @@
-```markdown
+
 # E-Cart Data Generator
 
 This repository contains a Python script for generating data for an e-commerce application. The data generator can be Dockerized and run using Docker Compose.
+
 
 ## Prerequisites
 
@@ -10,7 +11,7 @@ This repository contains a Python script for generating data for an e-commerce a
 
 ## Getting Started
 
-```
+
 1. Clone this repository:
    ```bash
    git clone https://github.com/Noosarpparashar/startupv2.git
