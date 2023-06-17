@@ -7,6 +7,7 @@ This repository contains a Python script for generating data for an e-commerce a
 ## Prerequisites
 
 - Docker
+- pgAdmin
 
 ## Getting Started
 
