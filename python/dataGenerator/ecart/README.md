@@ -84,9 +84,9 @@ create table ECART.FACT_ORDER (
    docker network create my-network
    ```
 
-8. Connect the PostgreSQL container to the Docker network. Replace `my-postgres` with the name of your PostgreSQL Docker container:
+8. Connect the PostgreSQL container to the Docker network. Replace `ecart-db-1` with the name of your PostgreSQL Docker container:
    ```bash
-   docker network connect my-network my-postgres
+    docker network connect my-network ecart-db-1
    ```
 
 9. Run the Docker container containing the data generator:
