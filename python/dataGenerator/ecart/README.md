@@ -38,7 +38,7 @@ This repository contains a Python script for generating data for an e-commerce a
     
 
 
-4. Once the services are up and running, create the necessary database tables by executing the DDL scripts provided in the previous folder. T
+4. Once the services are up and running, create the necessary database tables by executing the DDL scripts provided in the previous folder.
    - Create a database named `PINNACLEDB`. 
    - ```bash
         create DATABASE PINNACLEDB
