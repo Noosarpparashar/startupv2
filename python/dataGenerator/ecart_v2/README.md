@@ -61,7 +61,7 @@ This repository contains a Python script for generating data for an e-commerce a
    git clone https://github.com/Noosarpparashar/startupv2.git
    ```
 
-4. Change into the cloned directory:
+4. Go to the cloned directory and here you  have to change hostname, user and password to whatever you set in google cloud and also you can change speed here
 
    ```bash
    cd startupv2/python/dataGenerator/ecart_v2
