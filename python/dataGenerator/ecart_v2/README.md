@@ -61,7 +61,7 @@ This repository contains a Python script for generating data for an e-commerce a
    git clone https://github.com/Noosarpparashar/startupv2.git
    ```
 
-4. Go to the cloned directory and here you  have to change hostname, user and password to whatever you set in google cloud and also you can change speed here
+4. Go to the cloned directory and here you  have to change hostname, user and password to whatever you set in google cloud and also you can change speed here in dataGenerator.py file
 
    ```bash
    cd startupv2/python/dataGenerator/ecart_v2
@@ -72,14 +72,19 @@ This repository contains a Python script for generating data for an e-commerce a
    ```bash
    docker build -t my-ecart-data-generator .
    ```
+6. Switch to infra directory and run docker compose command to setup kafka, kafka connect, schema registry and  kafka ui
 
-6. Run the Docker container containing the data generator:
+   ```bash
+   cd startupv2/infra
+   docker-compose up
+   ```
+7. Run the Docker container containing the data generator:
 
    ```bash
    docker run my-ecart-data-generator
    ```
 
-7. [**Optional**] The data generator will start generating data for the e-commerce application based on the defined logic. If you wish to increase the rate of data generation, go to `dataGenerator.py` and increase [speed](https://github.com/Noosarpparashar/startupv2/blame/master/python/dataGenerator/ecart/dataGenerator.py#:~:text=speed,150), then rerun the following commands:
+8. [**Optional**] The data generator will start generating data for the e-commerce application based on the defined logic. If you wish to increase the rate of data generation, go to `dataGenerator.py` and increase [speed](https://github.com/Noosarpparashar/startupv2/blame/master/python/dataGenerator/ecart/dataGenerator.py#:~:text=speed,150), then rerun the following commands:
 
    ```bash
    docker build -t my-ecart-data-generator .
