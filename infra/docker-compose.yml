@@ -18,10 +18,8 @@ services:
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
-      CLUSTER_ID: 'anyrandomclusterid'
+      CLUSTER_ID: 'ciWo7IWazngRchmPES6q5A=='
       KAFKA_LOG_DIRS: '/tmp/kraft-combined-logs'
-    networks:
-      - kafka-cluster
 
   kafka2:
     image: confluentinc/cp-kafka
@@ -41,10 +39,8 @@ services:
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
-      CLUSTER_ID: 'anyrandomclusterid'
+      CLUSTER_ID: 'ciWo7IWazngRchmPES6q5A=='
       KAFKA_LOG_DIRS: '/tmp/kraft-combined-logs'
-    networks:
-      - kafka-cluster
 
   kafka3:
     image: confluentinc/cp-kafka
@@ -64,10 +60,9 @@ services:
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
-      CLUSTER_ID: 'anyrandomclusterid'
+      CLUSTER_ID: 'ciWo7IWazngRchmPES6q5A=='
       KAFKA_LOG_DIRS: '/tmp/kraft-combined-logs'
-    networks:
-      - kafka-cluster
+
   kafka-ui:
     container_name: kafka-ui
     image: provectuslabs/kafka-ui:latest
@@ -86,8 +81,7 @@ services:
       KAFKA_CLUSTERS_0_KAFKACONNECT_0_NAME: connect
       KAFKA_CLUSTERS_0_KAFKACONNECT_0_ADDRESS: http://connect:8083
       DYNAMIC_CONFIG_ENABLED: 'true'
-    networks:
-      - kafka-cluster
+ 
 
   schema-registry:
     image: confluentinc/cp-schema-registry
@@ -103,8 +97,6 @@ services:
       - kafka1
       - kafka2
       - kafka3
-    networks:
-      - kafka-cluster
   connect:
     image: quay.io/debezium/connect:latest
     ports:
@@ -120,9 +112,9 @@ services:
      - CONFIG_STORAGE_TOPIC=my_connect_configs
      - OFFSET_STORAGE_TOPIC=my_connect_offsets
      - STATUS_STORAGE_TOPIC=my_connect_statuses
-    networks:
-      - kafka-cluster
 
+  
 networks:
- kafka-cluster:
-    driver: bridge
+  default:
+    name: my-network
+    external: true
