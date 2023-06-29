@@ -18,7 +18,7 @@ services:
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
-      CLUSTER_ID: 'ciWo7IWazngRchmPES6q5A=='
+      CLUSTER_ID: 'anyclustername'
       KAFKA_LOG_DIRS: '/tmp/kraft-combined-logs'
 
   kafka2:
@@ -39,7 +39,7 @@ services:
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
-      CLUSTER_ID: 'ciWo7IWazngRchmPES6q5A=='
+      CLUSTER_ID: 'anyclustername'
       KAFKA_LOG_DIRS: '/tmp/kraft-combined-logs'
 
   kafka3:
@@ -60,7 +60,7 @@ services:
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
-      CLUSTER_ID: 'ciWo7IWazngRchmPES6q5A=='
+      CLUSTER_ID: 'anyclustername'
       KAFKA_LOG_DIRS: '/tmp/kraft-combined-logs'
 
   kafka-ui:
