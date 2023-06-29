@@ -1,0 +1,24 @@
+version: "3"
+services:
+  db:
+    image: quay.io/debezium/example-postgres:latest
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=9473
+      - POSTGRES_DB=postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/home/prasoon/Desktop/startupv1/docker-postgres-volume
+    networks:
+      - my-network1
+    external_links:
+      - pocv2-kafka1-1
+      - pocv2-kafka2-1
+      - pocv2-kafka3-1
+volumes:
+  pgdata:
+networks:
+  my-network1:
+    external: true
+
