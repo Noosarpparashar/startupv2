@@ -17,12 +17,12 @@ This repository contains a Python script for generating data for an e-commerce a
 
    - Create a database named `PINNACLEDB`.
    ```bash
-   create DATABASE PINNACLEDB
+   create DATABASE PINNACLEDB;
    ```
 
    - Create a schema named `ecart` within the `PINNACLEDB` database.
    ```bash
-   create SCHEMA ECART
+   create SCHEMA ECART;
    ```
 
 2. Once the services are up and running, the database and schema are created, create tables using the following DDL script. Make sure you are creating inside `pinnacledb` only.
