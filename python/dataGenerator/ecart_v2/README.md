@@ -15,9 +15,10 @@ This repository contains a Python script for generating data for an e-commerce a
 
 1. Once the database is up and running, create the necessary database tables by executing the DDL scripts provided in the previous folder. These scripts should start with "db" and include the schema creation.
 
-   - Create a database named `PINNACLEDB`.
+   - Create a database named `PINNACLEDB` and grant replication access to user postgres.
    ```bash
    create DATABASE PINNACLEDB;
+   ALTER USER postgres WITH REPLICATION;
    ```
 
    - Create a schema named `ecart` within the `PINNACLEDB` database.
@@ -106,6 +107,38 @@ This repository contains a Python script for generating data for an e-commerce a
    select * from ECART.FACT_ORDER
    select * from ECART.STOREINFO
    ```
+
+9. Create Connector and Send Data to Kafka Topic
+Open a tool like Postman or cURL to make a POST request to the Kafka Connect REST API by setting up the endpoint URL to `http://localhost:8083/connectors`.
+
+Replace the request body parameters with the appropriate values and send the POST request. Use the following example as a template, adjusting the values as needed:
+
+```json
+{
+  "name": "inventory-connector1",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "database.hostname": "34.012.345.678",
+    "database.port": "5432",
+    "database.user": "postgres",
+    "database.password": "1234",
+    "database.dbname": "pinnacledb",
+    "database.server.name": "fullfillment",
+    "table.whitelist": "ECART.STOREINFO",
+    "topic.prefix": "mysecondtopic"
+  }
+}
+```
+11. To verify the connector, open Kafka UI in your browser and navigate to the Kafka Connect section.
+
+In the Kafka Connect section, you will see the newly created connectors listed. Click on the relevant connector, such as "inventory-connector1," to view its details.
+
+Explore the created Kafka topics, and click on any of them to access the "Messages" section.
+
+This completes the process of creating a connector and sending data to a Kafka topic. You can now proceed to consume these messages from Kafka or perform any other desired actions.
+
+Note: For a visual demonstration of this process, refer to the accompanying YouTube video [insert your YouTube video link here]."
+
 
 ## License
 
