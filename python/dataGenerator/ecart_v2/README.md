@@ -85,7 +85,7 @@ This repository contains a Python script for generating data for an e-commerce a
    docker run my-ecart-data-generator
    ```
 
-8. [**Optional**] The data generator will start generating data for the e-commerce application based on the defined logic. If you wish to increase the rate of data generation, go to `dataGenerator.py` and increase [speed](https://github.com/Noosarpparashar/startupv2/blame/master/python/dataGenerator/ecart/dataGenerator.py#:~:text=speed,150), then rerun the following commands:
+8. [**Optional**] The data generator will start generating data for the e-commerce application based on the defined logic. If you wish to increase the rate of data generation, go to `dataGenerator.py` and increase [speed](https://github.com/Noosarpparashar/startupv2/blame/master/python/dataGenerator/ecart_v2/dataGenerator.py#:~:text=speed,150) then rerun the following commands:
 
    ```bash
    docker build -t my-ecart-data-generator .
