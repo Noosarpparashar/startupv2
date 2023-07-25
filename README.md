@@ -20,6 +20,7 @@ Feel free to explore each chapter's repository for more information and code imp
 ## Chapter 3: Building a Data Lake: Kafka Consumer in Spark-Scala | From Kafka to AWS S3 | Deploying on Container
 
 This project demonstrates how to create a data lake and containerize a multi-node Spark cluster using Docker and run your Spark code within the containers.
-Using this code, we read data from the Kafka topic in JSON format. The JSON data is then parsed using Spark SQL's json_tuple function to create a DataFrame with relevant columns. The processed data is written to a Parquet file format, which is an efficient columnar storage format for analytics workloads. The output is appended to a specific path in the S3 bucket, created based on the current timestamp.
+
+Using this code, we read data from the Kafka topic in JSON format. The JSON data is then parsed using Spark SQL's json_tuple function to create a DataFrame with relevant columns. The processed data is written to a Parquet file format. The output is appended to a specific path in the S3 bucket, created based on the current timestamp.
 
 For detailed instructions and code examples, please refer to the [Chapter 3 repository](https://github.com/Noosarpparashar/ecart-migration)https://github.com/Noosarpparashar/ecart-migration
