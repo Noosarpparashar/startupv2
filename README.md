@@ -25,7 +25,7 @@ Using this code, we read data from the Kafka topic in JSON format. The JSON data
 
 For detailed instructions and code examples, please refer to the [Chapter 3 repository](https://github.com/Noosarpparashar/ecart-migration)
 
-## Chapter 4: Give Polciy based access control to s3 Bucket
+## Chapter 4: Give Policy based access control to s3 Bucket
 
 This project demonstrates how to  secure your s3 data  while allowing the right individuals to access it.
 It deals with getObject, putObject, listBucketsObjects,Delete Objects, Sync Bucket with local, Restrict access using IP
