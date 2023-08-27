@@ -30,4 +30,4 @@ For detailed instructions and code examples, please refer to the [Chapter 3 repo
 This project demonstrates how to  secure your s3 data  while allowing the right individuals to access it.
 It deals with getObject, putObject, listBucketsObjects,Delete Objects, Sync Bucket with local, Restrict access using IP
 
-For detailed instruction please follow [Chapter4 repo](https://github.com/Noosarpparashar/howTo/blob/main/AttachPolicyIns3.txt)https://github.com/Noosarpparashar/howTo/blob/main/AttachPolicyIns3.txt
+For detailed instruction please follow [Chapter4 repo](https://github.com/Noosarpparashar/howTo/blob/main/AttachPolicyIns3.txt)
