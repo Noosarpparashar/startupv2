@@ -23,4 +23,11 @@ This project demonstrates how to create a data lake and containerize a multi-nod
 
 Using this code, we read data from the Kafka topic in JSON format. The JSON data is then parsed using Spark SQL's json_tuple function to create a DataFrame with relevant columns. The processed data is written to a Parquet file format. The output is appended to a specific path in the S3 bucket, created based on the current timestamp.
 
-For detailed instructions and code examples, please refer to the [Chapter 3 repository](https://github.com/Noosarpparashar/ecart-migration)https://github.com/Noosarpparashar/ecart-migration
+For detailed instructions and code examples, please refer to the [Chapter 3 repository](https://github.com/Noosarpparashar/ecart-migration)
+
+## Chapter 4: Give Polciy based access control to s3 Bucket
+
+This project demonstrates how to  secure your s3 data  while allowing the right individuals to access it.
+It deals with getObject, putObject, listBucketsObjects,Delete Objects, Sync Bucket with local, Restrict access using IP
+
+For detailed instruction please follow [Chapter4 repo](https://github.com/Noosarpparashar/howTo/blob/main/AttachPolicyIns3.txt)https://github.com/Noosarpparashar/howTo/blob/main/AttachPolicyIns3.txt
