@@ -31,3 +31,10 @@ This project demonstrates how to  secure your s3 data  while allowing the right 
 It deals with getObject, putObject, listBucketsObjects,Delete Objects, Sync Bucket with local, Restrict access using IP
 
 For detailed instruction please follow [Chapter4 repo](https://github.com/Noosarpparashar/howTo/blob/main/AttachPolicyIns3.txt)
+
+## Chapter 5:Lambda Function to organise s3 files bsed on the time and time zone the data came
+
+This project demonstrates how AWS Lambda works to transfer files to another bucket while categorizing them based on their timestamps in your chosen time zone
+
+For detailed instruction please follow [Chapter5 repo](https://github.com/Noosarpparashar/howTo/blob/main/TransferAndCategoriseFilesUsingLambda.txt)https://github.com/Noosarpparashar/howTo/blob/main/TransferAndCategoriseFilesUsingLambda.txt)
+
