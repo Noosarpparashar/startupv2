@@ -36,5 +36,5 @@ For detailed instruction please follow [Chapter4 repo](https://github.com/Noosar
 
 This project demonstrates how AWS Lambda works to transfer files to another bucket while categorizing them based on their timestamps in your chosen time zone
 
-For detailed instruction please follow [Chapter5 repo](https://github.com/Noosarpparashar/howTo/blob/main/TransferAndCategoriseFilesUsingLambda.txt)https://github.com/Noosarpparashar/howTo/blob/main/TransferAndCategoriseFilesUsingLambda.txt)
+For detailed instruction please follow [Chapter5 repo](https://github.com/Noosarpparashar/howTo/blob/main/TransferAndCategoriseFilesUsingLambda.txt)
 
