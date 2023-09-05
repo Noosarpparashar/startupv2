@@ -25,7 +25,7 @@ Using this code, we read data from the Kafka topic in JSON format. The JSON data
 
 For detailed instructions and code examples, please refer to the [Chapter 3 repository](https://github.com/Noosarpparashar/ecart-migration)
 
-Above repo might have been upgraded, Use this commit ID if you want to go to exact same date c3e227c61b13347c888c5201c16e8f7ec8387bac
+Above repo might have been upgraded, Use this commit ID if you want to go to exact same date
 git checkout c3e227c61b13347c888c5201c16e8f7ec8387bac
 ## Chapter 4: Give Policy based access control to s3 Bucket
 
