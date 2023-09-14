@@ -40,3 +40,15 @@ This project demonstrates how AWS Lambda works to transfer files to another buck
 
 For detailed instruction please follow [Chapter5 repo](https://github.com/Noosarpparashar/howTo/blob/main/TransferAndCategoriseFilesUsingLambda.txt)
 
+## Chapter 6: Enhancing Password Security: A Guide to AWS CMK, Secret Manager, AWS Toolkit and Jenkins Credentials
+
+This project demonstrates:-
+
+✨ How to access AWS resources with AWS Toolkit plugin on IntelliJ.
+✨ Creating and using Customer Managed Keys (CMK).
+✨ Encrypting, encoding, decrypting and decoding passwords.
+✨ Storing Credentials on Jenkins
+✨ Integrating secrets into your Dockerized code in production.
+
+For detailed instruction please follow [Chapter6 repo](https://github.com/Noosarpparashar/ecart-migration) commitID:- dc0cbe0
+
