@@ -7,9 +7,9 @@ from faker import Faker
 
 speed = 150
 conn = psycopg2.connect(
-    database="pinnacledb",
+    database="postgres",
     user="postgres",
-    host="34.132.142.159",
+    host="34.134.59.197",
     port="5432",
     password="9473"
 )
@@ -71,6 +71,10 @@ def generateProductsAndStores():
     suffix = random.choice(suffixes)
     storename = prefix + " " + infix + " " + suffix
 
+    min_value = 0
+    max_value = 2000000000
+    productPrice = random.uniform(min_value, max_value)
+
     productID = int(str(int(time.time()))[4:9])
     productName = adjective + " " + noun
     productCategory = noun
@@ -78,8 +82,8 @@ def generateProductsAndStores():
     storeadd = fake.address()
 
     cursor = conn.cursor()
-    postgres_insert_query_product_info = """INSERT INTO ECART.PRODUCTINFO (PRODUCTID, PRODUCTNAME, PRODCAT, STOREID) VALUES (%s,%s,%s,%s)"""
-    record_to_insert_product_info = (productID, productName, productCategory, storeid)
+    postgres_insert_query_product_info = """INSERT INTO ECART.PRODUCTINFO (PRODUCTID, PRODUCTNAME, PRODCAT, STOREID, PRODUCTPRICE) VALUES (%s,%s,%s,%s,%s)"""
+    record_to_insert_product_info = (productID, productName, productCategory, storeid,productPrice)
     postgres_insert_query_store_info = """INSERT INTO ECART.STOREINFO (STOREID, STORENAME, STOREADD) VALUES (%s,%s,%s)"""
     record_to_insert_store_info = (storeid, storename, storeadd)
 
@@ -127,6 +131,104 @@ def generateOrderFact():
         print("")
 
     return
+
+def updateRecords():
+    choices = [50, 15, 20]
+    n = random.choice(choices)
+    print("Random value taken is", n, "It will sleep for", (100 * n / speed), "seconds")
+    time.sleep(100 * n / speed)
+
+    postgreSQL_select_Query_cust = "SELECT CUSTID FROM ECART.CUSTOMER ORDER BY RANDOM() LIMIT 1"
+    postgreSQL_select_Query_product = "SELECT PRODUCTID FROM ECART.PRODUCTINFO ORDER BY RANDOM() LIMIT 1"
+
+    cursor = conn.cursor()
+    cursor.execute(postgreSQL_select_Query_cust)
+    custidrow = cursor.fetchall()
+
+    cursor.execute(postgreSQL_select_Query_product)
+    productidrow = cursor.fetchall()
+
+    try:
+        custID = custidrow[0][0]
+        productid = productidrow[0][0]
+
+        postgres_update_query_customer = """UPDATE ECART.CUSTOMER
+SET CUSTADD =
+    CASE 
+        WHEN CUSTADD ~ '_v[0-9]$' THEN 
+            CONCAT(LEFT(CUSTADD, LENGTH(CUSTADD) - 1),
+    			CAST(RIGHT(CUSTADD, 1) AS INTEGER)+1)
+        ELSE CONCAT(CUSTADD, '_v1')
+    end
+WHERE custid = %s; 
+"""
+        postgres_update_query_product = """UPDATE ECART.PRODUCTINFO
+SET PRODUCTNAME = 
+    CASE 
+        WHEN PRODUCTNAME ~ '_v[0-9]$' THEN 
+            CONCAT(LEFT(PRODUCTNAME, LENGTH(PRODUCTNAME) - 1),
+    			CAST(RIGHT(PRODUCTNAME, 1) AS INTEGER)+1)
+        ELSE CONCAT(PRODUCTNAME, '_v1')
+    end
+   where PRODUCTID = %s;
+        """
+        cust_record_to_update = (custID,)
+        prod_record_to_update = (productid,)
+
+        cursor.execute(postgres_update_query_customer, cust_record_to_update)
+        cursor.execute(postgres_update_query_product, prod_record_to_update)
+        conn.commit()
+
+        count = cursor.rowcount
+        print(count, "Records updated successfully into fact table for these custid and productid",custID,productid )
+    except Exception as e:
+        # Code to handle other exceptions
+        print("Looks like no data is present in customer or product table for now", str(e))
+    finally:
+        # Code that will be executed regardless of whether an exception occurred
+        print("")
+
+    return
+
+
+def deleteRecords():
+    choices = [25, 30, 45]
+    n = random.choice(choices)
+    print("Random value taken is", n, "It will sleep for", (100 * n / speed), "seconds")
+    time.sleep(100 * n / speed)
+
+    postgreSQL_select_Query_order = "SELECT ORDERID FROM ECART.FACT_ORDER ORDER BY RANDOM() LIMIT 1"
+
+    cursor = conn.cursor()
+    cursor.execute(postgreSQL_select_Query_order)
+    orderidrow = cursor.fetchall()
+
+
+
+    try:
+        orderID = orderidrow[0][0]
+        print("*************", orderID)
+
+        postgres_delete_query_customer = """DELETE FROM  ECART.FACT_ORDER
+WHERE ORDERID = %s;
+"""
+
+        order_record_to_delete = (orderID,)
+
+        cursor.execute(postgres_delete_query_customer, order_record_to_delete)
+        conn.commit()
+
+        count = cursor.rowcount
+        print(count, "Record deleted successfully from fact table for these orderId",order_record_to_delete )
+    except Exception as e:
+        # Code to handle other exceptions
+        print("Looks like no data is present in fact order table for now", str(e))
+    finally:
+        # Code that will be executed regardless of whether an exception occurred
+        print("")
+
+    return
+
 
 # generateCustomer(speed)
 # generateProductsAndStores()
