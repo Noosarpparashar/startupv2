@@ -7,11 +7,11 @@ from faker import Faker
 
 speed = 150
 conn = psycopg2.connect(
-    database="postgres",
+    database="pinnacledb",
     user="postgres",
-    host="34.134.59.197",
+    host="database-1.ctc8w4e42fs2.us-east-1.rds.amazonaws.com",
     port="5432",
-    password="9473"
+    password="123456789"
 )
 fake = Faker()
 
@@ -72,10 +72,11 @@ def generateProductsAndStores():
     storename = prefix + " " + infix + " " + suffix
 
     min_value = 0
-    max_value = 2000000000
+    max_value = 20000
     productPrice = random.uniform(min_value, max_value)
 
-    productID = int(str(int(time.time()))[4:9])
+    productID = int(str(int(time.time()))[4:10])
+    print(int(str(int(time.time()))), productID)
     productName = adjective + " " + noun
     productCategory = noun
     storeid = small_hash(storename)

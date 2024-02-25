@@ -15,7 +15,7 @@ print(f"Listening for messages on {subscription_path}...\n")
 
 # Block the script to keep the subscriber alive
 try:
-    streaming_pull_future.result()
+    streaming_pull_future.result(timeout=10)
 except Exception as ex:
     print(f"Error during message pulling: {ex}")
     streaming_pull_future.cancel()

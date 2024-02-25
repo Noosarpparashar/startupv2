@@ -71,7 +71,7 @@ def generateProductsAndStores():
     suffix = random.choice(suffixes)
     storename = prefix + " " + infix + " " + suffix
 
-    productID = int(str(int(time.time()))[4:9])
+    productID = int(str(int(time.time()))[4:10])
     productName = adjective + " " + noun
     productCategory = noun
     storeid = small_hash(storename)
